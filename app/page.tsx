@@ -1,12 +1,5 @@
 import Link from "next/link";
-import { EVENT } from "@/lib/event";
-
-const CARDS = [
-  { judul: "Hari / Tanggal", isi: EVENT.hari, sub: "Format Hybrid" },
-  { judul: "Waktu", isi: EVENT.waktu, sub: "Waktu Indonesia Barat" },
-  { judul: "Luring (Onsite)", isi: EVENT.venueLuring, sub: `Kuota: ${EVENT.kuotaLuring} Peserta` },
-  { judul: "Daring (Online)", isi: EVENT.platformDaring, sub: `Kuota: ${EVENT.kuotaDaring} Peserta` },
-];
+import { SOSIALISASI as S } from "@/lib/registrasi";
 
 export default function Beranda() {
   return (
@@ -14,13 +7,15 @@ export default function Beranda() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
           <span className="inline-block rounded-full bg-red-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-appsi-red">
-            {EVENT.badge}
+            Sosialisasi Nasional APPSI 2026
           </span>
           <h1 className="mt-5 max-w-4xl break-words text-3xl font-extrabold leading-tight tracking-tight text-navy sm:text-4xl lg:text-5xl">
-            {EVENT.headlineA}
-            <span className="text-appsi-blue">{EVENT.headlineB}</span>
+            Sinergi Nasional Pengelola Program Studi Rumpun Infokom untuk{" "}
+            <span className="text-appsi-blue">Akselerasi Mutu Program Studi INFOKOM</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-slate-600">{EVENT.subheadline}</p>
+          <p className="mt-6 max-w-2xl text-lg text-slate-600">
+            Sosialisasi bersama LAM INFOKOM dan Pengurus Pusat APPSI untuk seluruh pengelola program studi rumpun Infokom di Indonesia.
+          </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href="/pendaftaran" className="btn-primary">Daftar Acara Sekarang</Link>
             <Link href="/tentang" className="btn-secondary">Pelajari APPSI</Link>
@@ -31,27 +26,31 @@ export default function Beranda() {
       <section className="bg-appsi-soft">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="text-2xl font-extrabold sm:text-3xl">Ringkasan Acara</h2>
-          <div className="mt-2 h-1 w-14 bg-appsi-red" />
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {CARDS.map((h) => (
-              <div key={h.judul} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-wide text-appsi-red">{h.judul}</p>
-                <p className="mt-2 break-words text-lg font-bold text-appsi-blue">{h.isi}</p>
-                <p className="mt-1 text-sm text-slate-600">{h.sub}</p>
+          <div className="mt-2 flex h-1 w-20"><span className="w-1/2 bg-appsi-blue" /><span className="w-1/2 bg-appsi-red" /></div>
+          <div className="mt-8 grid gap-5 sm:grid-cols-3">
+            {[
+              { j: "Waktu", i: S.hari, s: S.waktu },
+              { j: "Media", i: "Daring", s: "Zoom Meeting Conference" },
+              { j: "Informasi Teknis", i: "Via Email / WhatsApp", s: "Tautan Zoom dikirim ke kontak yang didaftarkan" },
+            ].map((c) => (
+              <div key={c.j} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-wide text-appsi-red">{c.j}</p>
+                <p className="mt-2 break-words text-lg font-bold text-appsi-blue">{c.i}</p>
+                <p className="mt-1 text-sm text-slate-600">{c.s}</p>
               </div>
             ))}
           </div>
 
           <div className="mt-10 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h3 className="text-lg font-bold">Rangkaian Agenda</h3>
-            <ol className="mt-4 divide-y divide-slate-100">
-              {EVENT.agenda.map((a, i) => (
-                <li key={a} className="flex gap-4 py-3">
-                  <span className="w-6 shrink-0 font-bold text-appsi-blue">{i + 1}.</span>
-                  <span>{a}</span>
+            <h3 className="text-lg font-bold">Narasumber</h3>
+            <ul className="mt-4 grid gap-4 md:grid-cols-2">
+              {S.narasumber.map((n, i) => (
+                <li key={n.nama} className="flex gap-4 rounded-lg bg-appsi-soft p-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-appsi-blue font-bold text-white">{i + 1}</span>
+                  <span><b className="block break-words">{n.nama}</b><span className="text-sm text-slate-600">{n.peran}</span></span>
                 </li>
               ))}
-            </ol>
+            </ul>
           </div>
         </div>
       </section>

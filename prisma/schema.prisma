@@ -8,14 +8,17 @@ datasource db {
 }
 
 model Peserta {
-  id          Int      @id @default(autoincrement())
-  noRegistrasi String  @unique
-  nama        String
-  email       String   @unique
-  whatsapp    String
-  institusi   String
-  programStudi String
-  jabatan     String
-  kehadiran   String
-  createdAt   DateTime @default(now())
+  id              Int      @id @default(autoincrement())
+  noRegistrasi    String   @unique
+  email           String   @unique
+  namaLengkap     String
+  whatsapp        String
+  jabatan         String
+  perguruanTinggi String
+  provinsi        String
+  fakultas        String
+  programStudi    String
+  pertanyaan      String?
+  konfirmasiHadir Boolean
+  createdAt       DateTime @default(now())
 }
