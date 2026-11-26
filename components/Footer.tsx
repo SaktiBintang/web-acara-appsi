@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-4">
           <Image
-            src="/images/logo-appsi.jpeg"
+            src="/images/logo-appsi.png"
             alt="Logo APPSI"
             width={72}
             height={72}

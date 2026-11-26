@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-2.5 md:flex-row md:items-center md:justify-between md:py-0">
         <Link href="/" className="flex items-center gap-3.5 md:py-2.5">
           <Image
-            src="/images/logo-appsi.jpeg"
+            src="/images/logo-appsi.png"
             alt="Logo APPSI"
             width={80}
             height={80}
