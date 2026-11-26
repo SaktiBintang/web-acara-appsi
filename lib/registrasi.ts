@@ -16,6 +16,7 @@ export const JABATAN_STRUKTURAL = [
   "Sekretaris Program Studi (Sekprodi)",
   "Gugus Kendali Mutu / Penjaminan Mutu UPPS",
   "Pengurus Pusat APPSI",
+  "Koordinator Program Studi",
 ];
 export const LAINNYA = "Lainnya";
 

@@ -2,12 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
-body { @apply bg-white text-navy antialiased; overflow-x: hidden; }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-slate-800 antialiased;
+  overflow-x: hidden;
+}
 
 @layer components {
-  .btn-primary { @apply inline-flex items-center justify-center rounded-lg bg-appsi-blue px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-blue-800 disabled:opacity-60; }
-  .btn-secondary { @apply inline-flex items-center justify-center rounded-lg border-2 border-navy/15 bg-white px-6 py-3 font-semibold text-navy transition hover:border-appsi-blue hover:text-appsi-blue; }
-  .input { @apply w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-navy outline-none transition focus:border-appsi-blue focus:ring-2 focus:ring-appsi-blue/20; }
-  .label { @apply mb-1.5 block text-sm font-semibold text-navy; }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-appsi-blue px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-navy disabled:opacity-60;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border-2 border-appsi-blue/25 bg-white px-6 py-3 font-semibold text-navy transition hover:border-appsi-blue hover:bg-appsi-soft hover:text-appsi-blue;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 outline-none transition focus:border-appsi-blue focus:ring-2 focus:ring-appsi-blue/20;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-navy;
+  }
 }
